@@ -1,0 +1,25 @@
+{
+  "name": "asana-article-helper",
+  "version": "0.0.1",
+  "description": "Integrate with Asana and Google Docs to improve AI article generation process",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "start": "node ."
+  },
+  "author": "Braden Hirschi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.1",
+    "asana": "^1.0.2",
+    "dotenv": "^16.3.1",
+    "googleapis": "^105.0.0",
+    "openai": "^4.11.1"
+  }
+}

@@ -1,0 +1,12 @@
+# build files
+/dist
+
+# dependencies
+/node_modules
+
+# environment variables
+.env
+token.json
+
+# lockfiles
+package-lock.json
