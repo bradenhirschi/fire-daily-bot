@@ -1,2 +1,1 @@
-# fire-daily-bot
-# fire-daily-bot
+# Fire Daily Bot

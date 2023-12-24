@@ -13,13 +13,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.8.0",
+    "@types/ws": "^8.5.10",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.1",
+    "@supabase/supabase-js": "^2.39.1",
     "asana": "^1.0.2",
     "dotenv": "^16.3.1",
     "googleapis": "^105.0.0",
-    "openai": "^4.11.1"
+    "openai": "^4.11.1",
+    "ws": "^8.15.1"
   }
 }

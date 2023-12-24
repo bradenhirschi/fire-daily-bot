@@ -1,15 +1,17 @@
 import "dotenv/config";
-import { getArticleName } from "./asana.js";
-import { generateArticle } from "./openai.js";
-import { createGoogleDoc, writeContentToDoc } from "./google.js";
+import { rewriteArticle } from "./openai.js";
+import { getArticle } from "./news.js";
+import { publishArticle } from "./supabase.js";
+import { getImageUrl } from "./images.js";
 
 const main = async () => {
-  // const title = await getArticleName();
-  // const article = await generateArticle(title);
-  // const createdDoc = await createGoogleDoc(title);
-  // if (createdDoc.documentId) {
-  //   await writeContentToDoc(createdDoc.documentId, createdDoc.title, article);
-  // }
+
+  const oldArticle = await getArticle();
+  const {title, body, imageSearchQuery} = await rewriteArticle(oldArticle)
+  const imageUrl = await getImageUrl(imageSearchQuery);
+
+  publishArticle(title, body, imageUrl);
+  
 };
 
 main();
