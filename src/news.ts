@@ -1,6 +1,8 @@
 // Get popular news article url from The News API
-const getArticleUrl = async () => {
-  const newsApiUrl = 'https://api.thenewsapi.com/v1/news/top?locale=us&limit=1';
+export const getArticleUrl = async (categoryList: string[]) => {
+
+  const formattedCategoryList = encodeURIComponent(categoryList.join(','));
+  const newsApiUrl = `https://api.thenewsapi.com/v1/news/top?locale=us&categories=${formattedCategoryList}&limit=1`;
 
   const response = await fetch(newsApiUrl, {
     method: "GET",
@@ -11,15 +13,16 @@ const getArticleUrl = async () => {
     return res.json();
   })
 
-  const url = response.data[0].url;
+  const articleUrl = response.data[0].url;
+  const articleCategories = response.data[0].categories;
 
-  return url;
+  return {articleUrl, articleCategories};
 }
 
 // Get article body from URL
-export const getArticle = async () => {
+export const getArticle = async (categoryList: string[]) => {
 
-  const articleUrl = await getArticleUrl();
+  const {articleUrl, articleCategories} = await getArticleUrl(categoryList);
 
   const apiUrl = `https://api.articlextractor.com/v1/extract?url=${articleUrl}&language=en`
 
@@ -35,5 +38,5 @@ export const getArticle = async () => {
     return res.json();
   })
 
-  return response.data.text;
+  return { articleText: response.data.text, articleCategories };
 }
