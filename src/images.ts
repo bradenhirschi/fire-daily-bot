@@ -9,7 +9,7 @@ export const getImageUrl = async (imageSearchQuery: string) => {
   }).then(res => {
     return res.json();
   }).then(page => {
-    return page.photos[0].src.original;
+    return page.photos[0].src.large;
   })
 
   return imageUrl;
