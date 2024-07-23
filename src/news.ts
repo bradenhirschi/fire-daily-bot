@@ -1,4 +1,5 @@
 // Get popular news article url from The News API
+
 export const getArticleUrl = async (categoryList: string[]) => {
 
   const formattedCategoryList = encodeURIComponent(categoryList.join(','));

@@ -19,7 +19,7 @@ if [[ $CURRENT_VERSION == '' ]]
 then
   CURRENT_VERSION='v0.1.0'
 fi
-echo "Current Version: $CURRENT_VERSION"
+echo "Current version: $CURRENT_VERSION"
 
 # replace . with space so can split into an array
 CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./ })

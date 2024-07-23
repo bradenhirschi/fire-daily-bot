@@ -42,7 +42,7 @@ jobs:
           gcloud auth configure-docker --quiet
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
-      - name: Push Docker Image to Artifact Registry
+      - name: Push Docker Image to Docker Artifact Registry
         env:
           GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
         run: |-
